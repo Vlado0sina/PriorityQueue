@@ -1,12 +1,6 @@
-# Priority Queue Class Library - Assessment 1 Starting Repo
-
-This repository serves as the starting repository for **Assessment 1** of the **BSc Computing** program at the **University of the Highlands and Islands (UHI)**. 
-This repository is part of the module **UG409765 - Software Construction** and serves as the foundation for the Priority Queue class library assignment.
 
 ## **Overview**
-This repository provides the initial codebase for the Priority Queue class library. Students are tasked with completing and extending this codebase by 
-implementing four additional Priority Queue data structures, thoroughly testing them, and reflecting on the development process. 
-
+This project implements various priority queue structures using C#, demonstrating different approaches to handling priority-based data structures.
 ---
 
 ## **Repository Structure**
@@ -18,20 +12,9 @@ implementing four additional Priority Queue data structures, thoroughly testing 
 - `QueueOverflowException.cs`:  A custom exception class for handling scenarios where the queue exceeds its defined capacity.
 - `QueueUnderflowException.cs`: A custom exception class for handling scenarios where an operation is attempted on an empty queue.
 - `SortedArrayPriorityQueue.cs`: A complete implementation of the Priority Queue using a sorted array. This serves as an example and a reference for creating additional implementations.
-
+- `UnsortedArrayPriorityQueue.cs`:A complete implementation of the Priority Queue using a unsorted array.
+- `UnsortedLinkedListPriorityQueue.cs`:A complete implementation of the Priority Queue using a unsorted linked list.
+- `SortedLinkedListPriorityQueue.cs`:A complete implementation of the Priority Queue using a sorted linked list.
+- `HeapBasedPriorityQueue.cs`:A complete implementation of the Priority Queue using a heap.
+- `PriorityQueueTest.cs`:A complete implementation of test for the Priority Queue.
 ---
-
-## **Submission**
-1. Fork this repository and work on your own copy.
-2. Push all changes to your forked repository.
-3. Please don't create public clones containing solutions.
-
----
-
-## **Important Notes**
-- Keep track of your development process using Git version control.
-- Regularly commit your progress with meaningful and descriptive messages.
-- Refer to the assessment brief for detailed requirements and marking criteria.
-
-### **Contact**
-For any issues or questions, please reach out to your module instructor.
