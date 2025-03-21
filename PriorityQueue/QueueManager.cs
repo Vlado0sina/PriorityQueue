@@ -11,10 +11,17 @@ namespace PriorityQueue
         {
             InitializeComponent();
 
+            CB_Implementation.Items.Clear();
+            CB_Implementation.Items.Add("Sorted Array");
+            CB_Implementation.Items.Add("Unsorted Array");
+            CB_Implementation.Items.Add("Unsorted Link");
+            CB_Implementation.Items.Add("Sorted Link");
+            CB_Implementation.Items.Add("Heap");
+
             // Hide control panels until an interface is selected
             Panel_Add.Visible = false;
             Panel_Actions.Visible = false;
-            Panel_Output.Visible = false;            
+            Panel_Output.Visible = false;
         }
 
         private void CB_Implementation_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -27,12 +34,56 @@ namespace PriorityQueue
             {
                 InitSortedArrayQueue();
             }
+
+            if (CB_Implementation.SelectedIndex == 1)
+            {
+                InitUnsortedArrayQueue();
+            }
+
+            if (CB_Implementation.SelectedIndex == 2)
+            {
+                InitUnsortedLinkQueue();
+            }
+
+            if (CB_Implementation.SelectedIndex == 3)
+            {
+                InitSortedLinkQueue();
+            }
+
+            if (CB_Implementation.SelectedIndex == 4)
+            {
+                InitHeapQueue();
+            }
         }
-        
+
         private void InitSortedArrayQueue()
         {
             queue = new SortedArrayPriorityQueue<Person>(8);
             Lbl_Output.Text = "New sorted array priority queue created";
+        }
+
+        private void InitUnsortedArrayQueue()
+        {
+            queue = new UnsortedArrayPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New unsorted array priority queue created";
+        }
+
+        private void InitUnsortedLinkQueue()
+        {
+            queue = new UnsortedArrayPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New unsorted link priority queue created";
+        }
+
+        private void InitSortedLinkQueue()
+        {
+            queue = new UnsortedArrayPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New sorted link priority queue created";
+        }
+
+        private void InitHeapQueue()
+        {
+            queue = new UnsortedArrayPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New heap priority queue created";
         }
 
         private void Btn_AddQueue_Click(object sender, System.EventArgs e)
