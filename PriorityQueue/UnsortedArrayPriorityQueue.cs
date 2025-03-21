@@ -19,14 +19,14 @@ namespace PriorityQueue
             //Check for emptiness in array if empty throw an error
             if (IsEmpty())
             {
-                throw new QueueUnderflowException();
+                throw new InvalidOperationException("Queue is empty");
             }
 
             //Storing a highest priority item
             int maxIndex = 0;
 
             //Loop throw the array to find a highest priority item
-            for (int i = 1;i<tailIndex;i++)
+            for (int i = 1;i<=tailIndex;i++)
             {
                 //If current item's is higher, update maxIndex
                 if (storage[i].Priority > storage[maxIndex].Priority)
@@ -48,6 +48,15 @@ namespace PriorityQueue
                 throw new QueueOverflowException();
             }
 
+            ////Check if the item with same name and priority alredy exists
+            //for (int i = 0; i <= tailIndex; i++) 
+            //{
+            //    if (storage[i].Item.Equals(item) && storage[i].Priority == priority)
+            //    {
+            //        throw new InvalidOperationException("This is item with same priority alredy exists in the queue");
+            //    }
+            //}
+
             //Move tailIndex forward to store the new item in the next available position
             tailIndex++;
 
@@ -60,7 +69,7 @@ namespace PriorityQueue
             //Check if queue is empty before removing item
             if (IsEmpty())
             {
-                throw new QueueUnderflowException();
+                throw new InvalidOperationException("Queue is empty");
             }
 
 
@@ -68,7 +77,7 @@ namespace PriorityQueue
             int maxIndex = 0;
 
             //Loop throw the array to find a highest priority item
-            for (int i = 1; i < tailIndex; i++)
+            for (int i = 1; i <= tailIndex; i++)
             {
                 //If we find an elemt with a higher priority, update maxIndex
                 if (storage[i].Priority > storage[maxIndex].Priority)
@@ -78,8 +87,15 @@ namespace PriorityQueue
 
             }
 
+            for(int i = maxIndex; i < tailIndex; i++)
+            {
+                storage[i] = storage[i + 1];
+            }
+
             //Overwrite highest-priority item 
-            storage[maxIndex] = storage[tailIndex];
+            // storage[maxIndex] = storage[tailIndex];
+
+            storage[tailIndex] = default(PriorityItem<T>);
 
             ///Reduce the size of queue
             tailIndex--;

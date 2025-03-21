@@ -110,7 +110,7 @@ namespace PriorityQueue
                 }
 
                 //Stop if heap property restored 
-                if(largest == 1)
+                if(largest == i)
                 {
                     break ;
                 }

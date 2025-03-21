@@ -16,12 +16,12 @@ namespace PriorityQueue
         public void Add(T item, int priority)
         {
             //Create a new priority item and node
-            var newItem = new PriorityItem<T>(item, priority); 
+            var newItem = new PriorityItem<T>(item, priority);
             Node<T> newNode = new Node<T>(newItem);
 
 
             //Check if the list is empty or if new node is higher than the head
-            if (IsEmpty() || head.PriorityItem.Priority < priority)
+            if (IsEmpty() || head.PriorityItem.Priority <= priority)
             {
                 newNode.Next = head; //Insert a new node
                 head = newNode;//Update head to the new node
@@ -30,7 +30,7 @@ namespace PriorityQueue
 
             //We look throught the list and find a suitable position
             Node<T> current = head;
-            while (current.Next != null && current.Next.PriorityItem.Priority >= priority)
+            while (current.Next != null && current.Next.PriorityItem.Priority < priority)
             {
                 current = current.Next;//Move to next node
             }

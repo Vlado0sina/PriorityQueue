@@ -3,7 +3,7 @@ using System.Runtime.Remoting.Messaging;
 
 namespace PriorityQueue
 {
-    class UnsortedLinkedPriorityQueue<T>
+    class UnsortedLinkedPriorityQueue<T> : PriorityQueue<T>
     {
         //The head of linked list
         private Node<T> head;
@@ -48,7 +48,8 @@ namespace PriorityQueue
             return FindHighestPriorityNode().PriorityItem.Item; // Return the highest priority item to head of the list  
         }
 
-        public T Remove()
+        //public T Remove
+        public void Remove()
         {
             if (IsEmpty())
             {
@@ -70,18 +71,17 @@ namespace PriorityQueue
                 }
                 prev = curent;
                 curent = curent.Next;
-
-                //Remove the highest priority node
-                if (highestNode == head)
-                {
-                    head = head.Next;
-                }
-                else
-                {
-                    prevHighest = highestNode.Next;
-                }
             }
-            return highestNode.PriorityItem.Item;
+            //Remove the highest priority node
+            if (highestNode == head)
+            {
+                head = head.Next;
+            }
+            else
+            {
+                prevHighest = highestNode.Next;
+            }
+            // return highestNode.PriorityItem.Item;
         }
 
         public bool IsEmpty()
