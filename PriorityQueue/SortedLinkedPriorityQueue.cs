@@ -19,7 +19,6 @@ namespace PriorityQueue
             var newItem = new PriorityItem<T>(item, priority);
             Node<T> newNode = new Node<T>(newItem);
 
-
             //Check if the list is empty or if new node is higher than the head
             if (IsEmpty() || head.PriorityItem.Priority <= priority)
             {
